@@ -2,12 +2,16 @@ import express from 'express';
 import * as dotenv from 'dotenv'
 import router from './routes/userRoutes.js';
 import { errorHandler } from './middleware/errorMiddleware.js'
+import colors from 'colors'
+import connectDB from './config/db.js'
 
 dotenv.config()
 
 const {
     PORT
 } = process.env
+
+connectDB()
 
 const app = express()
 app.use(express.json())

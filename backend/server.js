@@ -1,6 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv'
-import router from './routes/userRoutes.js';
+import userRouter from './routes/userRoutes.js';
+import ticketRouter from './routes/ticketRoutes.js';
 import { errorHandler } from './middleware/errorMiddleware.js'
 import colors from 'colors'
 import connectDB from './config/db.js'
@@ -22,7 +23,8 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/api/users', router)
+app.use('/api/users', userRouter)
+app.use('/api/tickets', ticketRouter)
 app.use(errorHandler)
 
 
